@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { Header } from "@/components/ui/Header";
 import { NewsFeed } from "@/components/ui/NewsFeed";
 import { Zap, Target, Clock, ArrowRight } from "lucide-react";
 
@@ -10,23 +11,7 @@ export default function Home() {
   if (showFeed) {
     return (
       <main className="min-h-screen bg-white text-gray-900 font-sans selection:bg-emerald-100 selection:text-emerald-900 pt-24 pb-16 px-4 sm:px-6 lg:px-8">
-        <nav className="fixed top-0 inset-x-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 flex justify-between items-center px-6 py-4">
-          <span className="text-lg font-black tracking-tighter cursor-pointer" onClick={() => setShowFeed(false)}>AIFA<span className="text-emerald-600">NEWS</span></span>
-          <div className="flex items-center gap-6">
-            <button 
-              onClick={() => setShowFeed(false)}
-              className={`text-sm font-bold tracking-tight transition-colors ${!showFeed ? "text-emerald-600" : "text-gray-500 hover:text-emerald-500"}`}
-            >
-              Home
-            </button>
-            <button 
-              onClick={() => setShowFeed(true)}
-              className={`text-sm font-bold tracking-tight transition-colors flex items-center gap-1 ${showFeed ? "text-emerald-600" : "text-gray-500 hover:text-emerald-500"}`}
-            >
-              <span className={`w-1.5 h-1.5 rounded-full ${showFeed ? "bg-emerald-500 animate-pulse" : "bg-gray-300"}`}></span> Live News
-            </button>
-          </div>
-        </nav>
+        <Header showFeed={showFeed} setShowFeed={setShowFeed} />
         <NewsFeed />
       </main>
     );
@@ -36,23 +21,7 @@ export default function Home() {
     <main className="min-h-screen bg-white text-gray-900 font-sans selection:bg-emerald-100 selection:text-emerald-900">
       
       {/* Navigation Menu Bar */}
-      <nav className="fixed top-0 inset-x-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 flex justify-between items-center px-6 py-4">
-        <span className="text-lg font-black tracking-tighter cursor-pointer" onClick={() => setShowFeed(false)}>AIFA<span className="text-emerald-600">NEWS</span></span>
-        <div className="flex items-center gap-6">
-          <button 
-            onClick={() => setShowFeed(false)}
-            className={`text-sm font-bold tracking-tight transition-colors ${!showFeed ? "text-emerald-600" : "text-gray-500 hover:text-emerald-500"}`}
-          >
-            Home
-          </button>
-          <button 
-            onClick={() => setShowFeed(true)}
-            className={`text-sm font-bold tracking-tight transition-colors flex items-center gap-1 ${showFeed ? "text-emerald-600" : "text-gray-500 hover:text-emerald-500"}`}
-          >
-            <span className={`w-1.5 h-1.5 rounded-full ${showFeed ? "bg-emerald-500 animate-pulse" : "bg-gray-300"}`}></span> Live News
-          </button>
-        </div>
-      </nav>
+      <Header showFeed={showFeed} setShowFeed={setShowFeed} />
 
       {/* Hero Section */}
       <section className="max-w-4xl mx-auto px-6 pt-24 pb-32 text-center animate-in fade-in slide-in-from-bottom-8 duration-1000 fill-mode-both">
