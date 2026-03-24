@@ -18,6 +18,7 @@ export function Header({
   const isAccount = pathname === "/account";
   const isLogin = pathname === "/login";
   const isRegister = pathname === "/register";
+  const isLearn = pathname === "/learn";
 
   const { user, loading } = useAuth();
 
@@ -50,6 +51,14 @@ export function Header({
           }`}
         >
           Portfolio
+        </Link>
+        <Link 
+          href="/learn"
+          className={`text-sm font-bold tracking-tight transition-colors ${
+            isLearn ? "text-emerald-600" : "text-gray-500 hover:text-emerald-500"
+          }`}
+        >
+          Learn to Invest
         </Link>
 
         {/* Live News button */}

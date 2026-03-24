@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { Header } from "@/components/ui/Header";
 import { NewsFeed } from "@/components/ui/NewsFeed";
 import { Zap, Target, Clock, ArrowRight } from "lucide-react";
@@ -172,6 +173,11 @@ export default function Home() {
           >
             Try out now <ArrowRight className="w-5 h-5" />
           </button>
+          <div className="mt-4">
+            <Link href="/learn" className="text-sm text-gray-500 hover:text-emerald-600 font-medium">
+              New to investing? Learn the basics →
+            </Link>
+          </div>
         </div>
       </section>
 
